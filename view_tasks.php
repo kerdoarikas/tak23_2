@@ -31,6 +31,7 @@ include 'elements/head.php';
         <thead>
             <tr class="table-secondary">
             <th>#</th>
+            <th>Staatus</th>
             <th>Kirjeldus</th>
             <th>Lisatud</th>
             <th>Toimingud</th>
@@ -41,8 +42,20 @@ include 'elements/head.php';
             //$formatted_date = $task['added_at']->format('d.m.Y');
             if(!empty($tasks)): ?>
                 <?php foreach($tasks as $task): ?>
+                    <?php
+                    if($task['status'] == 'ootel'){
+                        $taskBadge = 'bg-warning';
+                    }
+                    if($task['status'] == 'tegemisel'){
+                        $taskBadge = 'bg-secondary';
+                    }
+                    if($task['status'] == 'valmis'){
+                        $taskBadge = 'bg-success';
+                    }
+                    ?>
                     <tr>
                         <td><?= $task['id'] ?></td>
+                        <td><span class="badge <?= $taskBadge ?>"><?= $task['status'] ?></span></td>
                         <td><?= $task['text'] ?></td>
                         <td><?= (new DateTime($task['added_at']))->format('d.m.Y') ?></td>
                         <td></td>
