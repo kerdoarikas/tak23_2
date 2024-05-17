@@ -1,10 +1,6 @@
 <?php
 
-// Configuration
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'tak23');
-define('DB_USER', 'tak23');
-define('DB_PASSWORD', 'EoF7int*h0c@56Ta');
+require 'db_data.php';
 
 // Connect to Database
 function connect()
