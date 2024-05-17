@@ -20,7 +20,19 @@
                         <label for="password">Parool</label>
                         <input name="password" type="password" class="form-control" id="password">
                     </div>
-                    <button type="submit" class="btn btn-dark mt-3 w-100">Registreeru</button>
+                    <div class="form-group">
+                        <label for="password2">Parool uuesti</label>
+                        <input name="password2" type="password" class="form-control" id="password2">
+                    </div>
+                    <div class="d-flex justify-content-between mt-3">
+                        <a href="index.php" class="btn btn-dark w-50 me-2">Tagasi</a>
+                        <button type="submit" class="btn btn-dark w-50">Registreeru</button>
+                    </div>
+                    <?php if ($_REQUEST['action'] == "password_error"): ?>
+                    <div class="w-100 d-flex mt-3" id="error">
+                        <span class="text-danger fw-bold">Paroolid ei ühti!</span>
+                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
