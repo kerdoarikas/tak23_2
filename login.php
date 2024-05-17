@@ -1,8 +1,8 @@
 <?php include 'elements/head.php'; ?>
 <div class="row">
         <div class="col-12">
-            <div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
-                <img src="static/img/logo.png" alt="logo" class="img-fluid" style="max-width: 100%; max-height: 80vh;">
+            <div class="d-flex align-items-center justify-content-center">
+                <img src="static/img/logo.png" alt="logo" class="img-fluid w - 50">
             </div>
         </div>
     <div class="row">
