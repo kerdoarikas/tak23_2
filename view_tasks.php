@@ -12,7 +12,6 @@ $username = $_SESSION['user']['username'];
 
 $tasks = getUserTasks($_SESSION['user']['id']);
 
-
 include 'elements/head.php';
 ?>
 
@@ -23,6 +22,7 @@ include 'elements/head.php';
     </div>
 </div>
 
+
 <div class="row">
     <div class="col-6">
     <div class="bg-white rounded shadow mt-3 ms-3 pb-4">
@@ -31,18 +31,33 @@ include 'elements/head.php';
         <thead>
             <tr class="table-secondary">
             <th>#</th>
+            <th>Staatus</th>
             <th>Kirjeldus</th>
             <th>Lisatud</th>
             <th>Toimingud</th>
             </tr>
         </thead>
         <tbody>
-            <?php if(!empty($tasks)): ?>
+            <?php 
+            //$formatted_date = $task['added_at']->format('d.m.Y');
+            if(!empty($tasks)): ?>
                 <?php foreach($tasks as $task): ?>
+                    <?php
+                    if($task['status'] == 'ootel'){
+                        $taskBadge = 'bg-warning';
+                    }
+                    if($task['status'] == 'tegemisel'){
+                        $taskBadge = 'bg-secondary';
+                    }
+                    if($task['status'] == 'valmis'){
+                        $taskBadge = 'bg-success';
+                    }
+                    ?>
                     <tr>
                         <td><?= $task['id'] ?></td>
+                        <td><span class="badge <?= $taskBadge ?>"><?= $task['status'] ?></span></td>
                         <td><?= $task['text'] ?></td>
-                        <td><?= $task['added_at'] ?></td>
+                        <td><?= (new DateTime($task['added_at']))->format('d.m.Y') ?></td>
                         <td></td>
                     </tr>
                 <?php endforeach; ?>
