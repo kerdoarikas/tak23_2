@@ -12,7 +12,6 @@ $username = $_SESSION['user']['username'];
 
 $tasks = getUserTasks($_SESSION['user']['id']);
 
-
 include 'elements/head.php';
 ?>
 
@@ -22,6 +21,7 @@ include 'elements/head.php';
     <a href="db/logout.php" class="btn btn-dark">Logi välja</a>
     </div>
 </div>
+
 
 <div class="row">
     <div class="col-6">
@@ -37,12 +37,14 @@ include 'elements/head.php';
             </tr>
         </thead>
         <tbody>
-            <?php if(!empty($tasks)): ?>
+            <?php 
+            //$formatted_date = $task['added_at']->format('d.m.Y');
+            if(!empty($tasks)): ?>
                 <?php foreach($tasks as $task): ?>
                     <tr>
                         <td><?= $task['id'] ?></td>
                         <td><?= $task['text'] ?></td>
-                        <td><?= $task['added_at'] ?></td>
+                        <td><?= (new DateTime($task['added_at']))->format('d.m.Y') ?></td>
                         <td></td>
                     </tr>
                 <?php endforeach; ?>
