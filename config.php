@@ -21,17 +21,21 @@ function disconnect($conn)
 }
 
 // Register a new user
-function registerUser($username, $password)
+function registerUser($username, $password, $password2)
 {
-    $conn = connect();
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO users (username, password) VALUES (:username, :hashed_password)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':username', $username);
-    $stmt->bindParam(':hashed_password', $hashed_password);
-    $result = $stmt->execute();
-    disconnect($conn);
-    return $result; // Returns true on successful insert, false otherwise
+    if (compareRegisterPassword($password, $password2)) {
+        $conn = connect();
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO users (username, password) VALUES (:username, :hashed_password)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':hashed_password', $hashed_password);
+        $result = $stmt->execute();
+        disconnect($conn);
+        return $result; // Returns true on successful insert, false otherwise
+    } else {
+        return false;
+    }
 }
 
 // Login a user (assuming username and password are submitted in a form)
@@ -121,4 +125,8 @@ function deleteTask($id)
     $result = $stmt->execute();
     disconnect($conn);
     return $result; // Returns true on successful delete, false otherwise
+}
+
+function compareRegisterPassword($password, $password2) {
+    return $password == $password2;
 }
