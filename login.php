@@ -13,7 +13,8 @@
                         <label for="password">Parool</label>
                         <input name="password" type="text" class="form-control" id="username">
                     </div>
-                    <button type="submit" class="btn btn-outline-light mt-3 w-100">Sisene</button>
+                    <button type="submit" class="btn btn-outline-light mt-3 w-100">
+                    <i class="fa-solid fa-right-to-bracket"></i> Sisene</button>
                 </div>
             </div>
         </div>
