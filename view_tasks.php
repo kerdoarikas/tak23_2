@@ -17,7 +17,7 @@ include 'elements/head.php';
 
 <div class="container-fluid px-4 bg-white py-3 shadow">
     <div class="d-flex justify-content-between align-items-center">
-    <h5 class="m-0">Tere tulemast, kasutajanimi!</h5>
+    <h5 class="m-0">Tere tulemast, <?= $username ?>!</h5>
     <a href="db/logout.php" class="btn btn-dark">Logi välja</a>
     </div>
 </div>
