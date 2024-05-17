@@ -1,4 +1,10 @@
 <?php include 'elements/head.php'; ?>
+<div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+                <img src="static/img/logo.png" alt="logo" class="img-fluid" style="max-width: 100%; max-height: 80vh;">
+            </div>
+        </div>
     <div class="row">
     <form action="db/login.php" method="post">
         <div class="col-12">
