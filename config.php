@@ -3,8 +3,8 @@
 // Configuration
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'tak23');
-define('DB_USER', 'root');
-define('DB_PASSWORD', '');
+define('DB_USER', 'vladimir');
+define('DB_PASSWORD', 'Parool1');
 
 // Connect to Database
 function connect()
