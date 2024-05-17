@@ -58,7 +58,9 @@ include 'elements/head.php';
                         <td><span class="badge <?= $taskBadge ?>"><?= $task['status'] ?></span></td>
                         <td><?= $task['text'] ?></td>
                         <td><?= (new DateTime($task['added_at']))->format('d.m.Y') ?></td>
-                        <td></td>
+                        <td>
+                        <a href="edit_task.php?ids=<?php echo $task['id']; ?>"><i class="fa-solid fa-pen-to-square text-warning" title="Edit"></i></a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>
